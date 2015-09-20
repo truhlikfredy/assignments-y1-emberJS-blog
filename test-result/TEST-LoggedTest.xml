@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.066" errors="0" skipped="0" tests="3" name="LoggedTest">
+  <testcase classname="LoggedTest" name="testCreating" time="0.029">
+      </testcase>
+  <testcase classname="LoggedTest" name="testCheatSession" time="0.02">
+      </testcase>
+  <testcase classname="LoggedTest" name="testDeletion" time="0.017">
+      </testcase>
+</testsuite>

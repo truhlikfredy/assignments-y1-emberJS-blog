@@ -1,0 +1,59 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+########### members
+GET     /api/members/{sid}                                                  Api.members
+GET     /api/member/{id}                                                    Api.member
+GET     /api/myProfile/{sid}                                                Api.myProfile
+
+########### friendships
+GET     /api/members/friendsAdd/{id}/{sid}                                  Api.friendsAdd
+GET     /api/members/friendsRemove/{id}/{sid}                               Api.friendsRemove
+
+########### images upload and getting
+POST    /uploadAvatar/{sid}                                                 Accounts.uploadAvatar
+POST    /api/uploadBg/{id}/{sid}                                            Api.uploadBg
+
+GET     /api/avatar/{id}                                                    Api.avatar
+GET     /api/bgImage/{id}                                                   Api.bgImage
+
+########### CRUD for blog,post and comment
+#list
+GET     /api/blogs/{sid}                                                    Api.blogs
+GET     /api/blog/{id}/{sid}                                                Api.blog
+GET     /api/post/{id}/{sid}                                                Api.post
+
+#add
+GET     /api/addBlog/{title}/{sid}                                          Api.addBlog
+#POST    /api/addBlog/                                                       Api.addBlog
+GET     /api/addPost/{id}/{title}/{contentText}/{allowComments}/{sid}       Api.addPost
+GET     /api/addComment/{id}/{title}/{contentText}/{sid}                    Api.addComment
+
+#update
+GET     /api/updateBlog/{id}/{title}/{sid}                                  Api.updateBlog 
+GET     /api/updatePost/{id}/{title}/{contentText}/{allowComments}/{sid}    Api.updatePost
+#POST     /api/updatePost/                                                   Api.updatePost
+
+#remove
+GET     /api/removeBlog/{id}/{sid}                                          Api.removeBlog
+GET     /api/removePost/{id}/{sid}                                          Api.removePost
+GET     /api/removeComment/{id}/{sid}                                       Api.removeComment
+
+########## loggining in, registering, updating details
+
+POST    /login                                                              Accounts.login
+POST    /register                                                           Accounts.register
+POST    /update                                                             Accounts.update
+POST    /logout                                                             Accounts.logout
+
+######### First page
+GET     /home                                                               Api.index
+GET     /                                                                   Api.index
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                                            staticDir:public
+
+# Catch all
+*       /{controller}/{action}                                              {controller}.{action}

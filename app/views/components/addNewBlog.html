@@ -1,0 +1,33 @@
+<section class="ui form segment">
+  <label class="ui ribbon label"><i class="icon inverted circular black tag"></i>Add new Blog</label>    
+  <section class="ui segment">
+
+    {{#if blogsFailed}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Please fill all data properly.</div>
+      </div>
+    {{/if}}
+    
+    {{#if blogsSlowConnection}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Slow connection, please wait.</div>
+      </div>
+    {{/if}}    
+
+    <div class="field">
+       <label>Title</label>
+       {{input type="text" id="blog_title" value=blogtitle }}
+    </div>
+
+    <div class="ui labeled labeled icon button" {{action 'addblogget' this}}><i class="file icon"></i>Create blog</div>           
+     
+  </section>
+</section>
+
+*{*   
+ rests from post sending
+ <form id="register" {{action "addblogpost" on="submit"}}>
+  <button class="ui submit button labeled icon"><i class="file icon"></i>Create</button>
+ </form> 
+*}*
+ 

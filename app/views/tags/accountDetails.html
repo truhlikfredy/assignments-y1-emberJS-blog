@@ -1,0 +1,82 @@
+<section class="ui segment">
+  <label class="ui ribbon label"><i class="icon inverted circular black user"></i>    
+   #{if _logged}
+    {{name}}'s
+   #{/if}#{else}
+    Profile
+   #{/else} 
+   details</label>
+   #{if _logged}
+  <h3 class="header">{{status}}</h3>
+  #{/if}
+  <section class="ui segment">
+
+    {{#if signupFailed}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Please fill all data properly.</div>
+      </div>
+    {{/if}}
+    
+    {{#if signupisSlowConnection}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Slow connection, please wait.</div>
+      </div>
+    {{/if}}    
+
+    #{if _logged}
+      <form id="update" {{action "update" on="submit"}}>
+    #{/if}#{else}
+      <form id="register" {{action "register" on="submit"}}>
+    #{/else}
+      <div class="field">
+         <label>Name</label>
+         #{if _logged}
+          {{input type="text" id="profile_name" name="profile_name" value=name }}
+         #{/if}#{else}
+          {{input type="text" id="register_name" name="register_name" }}
+         #{/else} 
+      </div>
+      <div class="field">
+        <label>Email</label>
+         #{if _logged}
+          {{input type="text" id="profile_email" name="profile_email" value=email }}
+         #{/if}#{else}
+          {{input type="text" id="register_email" name="register_email" }}
+         #{/else} 
+      </div>
+      #{if _logged}
+
+      <div class="field">
+        <label>Email</label>
+        {{input type="text" id="profile_status" name="profile_status" value=status }}
+      </div>
+  
+      #{/if}
+      #{else}
+        <div class="field">
+          <label>Password</label>
+          {{input type="password" id="register_password" name="register_password" }}
+        </div>
+      #{/else}
+      <div class="field">
+        <div class="ui toggle checkbox">
+         #{if _logged}
+           {{input type="checkbox" id="profile_showonline" name="profile_showonline" }}
+         #{/if}#{else}
+           {{input type="checkbox" id="register_showonline" name="register_showonline" checked="" }}
+         #{/else} 
+           
+          
+          <label>Show others when I'm online</label>
+        </div>
+      </div>
+            
+      #{if _logged}
+        <button class="ui button submit labeled icon"><i class="icon edit"></i> Update </button>
+      #{/if}#{else}
+        <button class="ui submit button labeled icon"><i class="keyboard icon"></i>Signup</button>
+      #{/else}
+     
+    </form>
+  </section>
+</section>

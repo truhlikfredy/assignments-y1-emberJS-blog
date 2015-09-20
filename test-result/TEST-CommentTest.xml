@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.129" errors="0" skipped="0" tests="3" name="CommentTest">
+  <testcase classname="CommentTest" name="testDeletion" time="0.052">
+      </testcase>
+  <testcase classname="CommentTest" name="testCreation" time="0.052">
+      </testcase>
+  <testcase classname="CommentTest" name="testToString" time="0.025">
+      </testcase>
+</testsuite>

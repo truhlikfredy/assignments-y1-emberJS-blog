@@ -1,0 +1,11 @@
+<section class="ui form segment">
+ <div class="field">
+  <label>Subject</label>
+  {{input type="text" value=post.commenttitle }}
+ </div>
+ <div class="field">
+  <label>Body</label>
+  {{input type="text" value=post.commentbody }}
+ </div>   
+ <div class="ui labeled icon button" {{action 'addcomment' post}}><i class="outline comment icon"></i>Add new comment</div> 
+</section>

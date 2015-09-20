@@ -1,0 +1,307 @@
+  *{********************** Ember/Play templates for ember views ****************}*
+  
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="application">{{outlet}}</script>
+  
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="index">
+*{**   <h1 class="ui center aligned header">Welcome to Bloggable Blogidy</h1> **}*
+   <center><img src="/public/images/logo.jpg" width="308" height="196"></center>
+   <h3 class="ui center aligned header">Lightweight and fast as light <i class="bolt icon"></i>(therefore light color scheme)</h3>
+   <hr><br>
+   <section class="ui error two column grid form segment">
+    <div class="row">
+     <div class="column">
+      #{include "components/login.html" /}
+     </div>
+     <div class="center aligned column">
+      <br><br><br><br><br>
+      {{#link-to 'signup' class="ui animated button centered"}}
+        <div class="visible content"><i class="key icon"></i>Or Signup new account</div>
+        <div class="hidden content"><i class="right arrow icon"></i> We know you want it</div>
+      {{/link-to}}
+
+     </div>
+    </div>
+   </section>  
+  </script>  
+  
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="signup">
+   <center><img src="/public/images/logo.jpg" width="308" height="196"></center>
+   <h3 class="ui center aligned header">Lightweight and fast as light <i class="bolt icon"></i>(therefore light color scheme)</h3>
+   <hr><br>
+   <section class="ui error two column grid form segment">
+    <div class="row">
+     <div class="column">
+      #{accountDetails logged:false /}
+     </div>
+     <div class="center aligned column">
+      <br><br><br><br><br>
+      {{#link-to 'index' class="ui animated fade button"}}
+        <div class="visible content"><i class="key icon"></i>Or click here to login</div>
+        <div class="hidden content">if you have account already</div>
+      {{/link-to}}
+
+     </div>
+    </div>
+   </section>  
+  </script>
+
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="home">
+   #{nav/}
+   <section class="ui error two column grid form segment">
+    <div class="row">
+     <div class="column">
+      #{accountDetails logged:true /}
+     </div>
+     <div class="column">
+
+  <section class="ui raised form segment">
+    <div class="ui circular medium image">{{avatarImage id}}</div>
+
+    <form action="/uploadAvatar/{{unbound show-session session}}" method="post" enctype="multipart/form-data">     
+      <div class="ui field">
+        <input type="file" name="picture">  </input> 
+     </div>     
+     <button class="ui blue submit labeled icon"><i class="cloud upload icon"></i> Upload</button>       
+    </form>        
+  </section>
+
+     </div>
+    </div>
+   </section>
+  </script>
+  
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="members">
+   #{nav/}
+   <section class="ui error two column grid form segment">
+    <div class="row">
+      {{outlet}}
+    </div>
+    <div class="row">
+     <div class="column">
+      #{members fav:true, ribbonTitle:'Friends', ribbonIcon:'heart'/}
+     </div>
+     <div class="column">
+      #{members fav:false, ribbonTitle:'Members', ribbonIcon:'users'/}
+     </div>
+    </div>
+   </section>  
+  </script>
+
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="member">
+     <div class="column">
+      <section class="ui segment">
+       <label class="ui ribbon label"><i class="icon inverted circular black user"></i>{{name}}'s profile</label>
+*{**        <a href="/myProfile/edit" class="ui button labeled icon"><i class="edit sign icon"></i>Edit</a> **}*
+
+         {{#link-to 'blogs' class="ui right floated icon button"}}
+            <i class="tags icon"></i>
+              Show Blogs
+         {{/link-to}}  
+
+  <section class="ui raised segment">
+    <div class="ui grid">
+      <div class="twelve wide column">
+        <table class="ui table segment">
+          <thead>
+            <tr>
+              <th>Avatar and status</th>
+              <th>Email</th>
+              <th>Public</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+               {{status}}               
+              </td>
+              <td>
+               {{mailToButton email}}
+                <div class="visible content">{{email}}</div>            
+                <div class="hidden content"><i class="mail icon"></i>email</div>
+               </a>
+              </td>
+              <td><i {{bind-attr class=":icon showOnline:checkmark:remove"}}></i> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+    </section>
+   </div>
+    <div class="column">
+<div class="ui medium circular image">
+{{avatarImage id}}</div>
+   </div>
+  </script>
+  
+
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="about">
+   #{nav/}
+   <center><b>This is:</b><br><img src="/public/images/logo.jpg" width="308" height="196"><br>
+   Lightweight and fast as light <i class="bolt icon"></i>It is lovely right?</center>   
+  </script>
+  
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="blogs">
+   #{nav/}
+
+  *{*<div class="ui three column divided grid">*}*
+  <div class="ui grid">
+   <div class="row">
+    <div class="six wide column">
+     <table class="ui table segment">
+      <thead><tr><th>Blog title</th><th>Author</th><th>Content</th></tr></thead>
+      <tbody>
+       {{#each}}
+        <tr><td>{{title}}</td>
+         <td>
+          {{#link-to 'member' this.user class="animated fade mini ui button"}}
+           <div class="visible content"><div class="ui avatar image">{{avatarImage user.id}}</div>{{user.name}}</div>
+           <div class="hidden content"><i class="move icon"></i>see profile</div>
+          {{/link-to}}
+         </td>
+         <td>
+          {{#link-to 'blog' this class="mini ui button"}}
+           Posts
+          {{/link-to}}
+         </td>
+        </tr>
+       {{/each}}
+      </tbody>
+     </table>
+     #{include "components/addNewBlog.html" /}
+    </div>
+    <div class="ten wide column">
+     {{outlet}}
+    </div>
+   </div>
+  </div>
+   
+  </script>
+  
+  *{*** ********** complicated one but majority work is executed in one place ****************************************** ***}*
+  <script type="text/x-handlebars" id="blog">
+   <section class="ui segment" {{bind-attr style=bgstyle}}>
+    <h1>{{title}} by {{user.name}}</h1>
+
+    <!-- **************************** edit own blog ********************************-->
+
+    {{#if isMine}}
+      {{#if isEditingBlog}}
+       {{input type="text" value=title}}<br><br>
+       Upload blog background:<br>
+       <form action="/api/uploadBg/{{unbound this.id}}/{{unbound show-session session}}" method="post" enctype="multipart/form-data">     
+        <input type="file" name="picture">  </input> 
+        <button class="ui blue submit labeled icon"><i class="cloud upload icon"></i> Upload</button>
+       </form><br>       
+       <div class="ui icon button" {{action 'doneeditingblog' this}}><i class="edit icon"></i>Done editing</div>
+    </form>        
+
+      {{else}}
+       <div class="ui icon button" {{action 'editblog' }}><i class="edit icon"></i>Edit blog</div>
+       <div class="ui icon button" {{action 'removeblog' this}}><i class="remove icon"></i>Delete blog</div>    
+      {{/if}}
+    {{/if}}  
+
+    <!-- **************************** posts ********************************-->
+
+    {{#each post in posts}}
+     <section class="ui raised segment" style="opacity: 0.85;">
+      <label class="ui ribbon label"><i class="icon inverted circular black tasks"></i><b>{{post.title}}</b> - {{format-date post.timeShow}}</label>    
+*{**
+      {{#if embeddedPosts}}
+       {{format-markdown post.contentText}}
+      {{else}}
+       {{#link-to 'post' post.id class="mini ui button"}}Expand{{/link-to}}
+       {{outlet}}
+      {{/if}}
+**}*
+      {{format-markdown post.contentText}}
+
+      <!-- **************************** edit own posts ********************************-->
+
+      {{#if isMine}}
+        {{#if isEditing}}
+         <section class="ui form segment">
+          <form>
+           <div class="field">
+            <label>Title</label>
+            {{input type="text" value=post.title}}
+           </div>
+           <div class="field">
+            <label>Content</label>
+            {{textarea type="text" value=post.contentText}}
+           </div>
+*{**
+           <div class="field">
+            <div class="ui toggle checkbox">
+             <label>Allow comments</label>
+             {{input type="checkbox" checked=post.allowComments}}
+            </div>
+           </div>
+**}*
+           <div class="field">
+            <label>Allow comments</label>
+            {{input type="checkbox" checked=post.allowComments}}
+           </div>
+          <div class="ui icon button" {{action 'doneeditingpost' post}}><i class="edit icon"></i>Done</div>
+          </form>
+         </section>
+        {{else}}
+         <div class="ui icon button" {{action 'editpost' post}}><i class="edit icon"></i>Edit post</div>
+         <div class="ui icon button" {{action 'removepost' post}}><i class="remove icon"></i>Delete post</div>  
+        {{/if}}
+      {{/if}}
+
+      <!-- **************************** comments  ********************************-->
+
+      {{#if post.allowComments}}
+       <section class="ui inverted raised segment">
+        <h2>Comments</h2>
+        {{#each comment in post.comments}}
+         <hr>
+         <b>{{comment.title}}</b> <i class="forward icon"></i>
+          {{#link-to 'member' comment.user class="animated black fade tiny ui button"}}
+           <div class="visible content"><div class="ui avatar image">{{avatarImage comment.user.id}}</div>{{comment.user.name}}</div>
+           <div class="hidden content"><i class="move icon"></i>see profile</div>
+          {{/link-to}}
+          - {{format-date comment.time}}
+          {{#if comment.isMine}}
+            <div class="ui black icon button" {{action 'removecomment' comment}}><i class="remove icon"></i>Delete</div>  
+          {{/if}}
+          {{#if isMine}}
+            <div class="ui black icon button" {{action 'removecomment' comment}}><i class="remove icon"></i>Delete</div>  
+          {{/if}}
+  
+         {{format-markdown comment.contentText}}
+        {{/each}}
+        #{addNewComment/}
+       </section>
+      {{/if}}
+     </section>
+    {{/each}}
+    {{#if isMine}}
+     #{include "components/addNewPost.html" /}
+    {{/if}}
+   </section>
+  </script>  
+
+  *{*** ************************************************************************* ***}*
+  <script type="text/x-handlebars" id="post">
+   {{#if showThisPost}}
+    {{#link-to 'blog' this class="mini ui button"}}Less{{/link-to}}
+    {{format-markdown post.contentText}}
+   {{else}}
+    {{#link-to 'blog' this class="mini ui button"}}More{{/link-to}}
+   {{/if}}
+  </script>  
+  

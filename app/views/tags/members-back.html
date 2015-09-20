@@ -1,0 +1,27 @@
+      <section class="ui segment">
+       <label class="ui ribbon label"><i class="icon inverted circular black ${_ribbonIcon}"></i>${_ribbonTitle}</label>
+       <section class="ui segment">
+        <div class="ui list"> 
+         {{#each entry in content}}
+          {{entry.isFriend}}
+          {{#ifswitch entry.isFriend ${_fav}}}
+          <div class="ui item">
+*{**           <img class="ui avatar #{if !user.online || !user.showOnline}disabled#{/if} image" src="/profile/getthumbnail/${user.id}"> **}*        
+            <img class="ui avatar {{unbound disabled-if-offline entry.online entry.showOnline}} image" src="/api/avatar/{{unbound entry.id}}">
+*{**            <img src="/api/avatar/{{unbound id}}" {{bind-attr class=":ui avatar image this.online::disabled"}}> **}*
+            *{**<img {{bind-attr class=":ui avatar image this.online::disabled"}}>**}*
+            {{entry.name}} ({{entry.email}})
+           {{#link-to 'blog' entry}}
+            {{entry.id}}
+           {{/link-to}}
+           
+<div class="ui right floated icon button">
+  <i class="add icon"></i>
+  Add as friend
+</div>           
+          </div>
+          {{/ifswitch}}
+         {{/each}}
+        </div>
+       </section>
+      </section>

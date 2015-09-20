@@ -1,0 +1,18 @@
+01 May 2014 16:00:38,093 INFO  ~ Starting E:\_skola\docs_sync\eclipse_web\emberTest6
+01 May 2014 16:00:38,101 INFO  ~ Module cloudbees is available (I:\skola\webdev_tools\play-1.2.5.3\modules\cloudbees-0.2.2)
+01 May 2014 16:00:38,946 WARN  ~ You're running Play! in DEV mode
+01 May 2014 16:00:39,104 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+01 May 2014 16:00:48,429 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
+01 May 2014 16:00:49,716 INFO  ~ Application 'emberTest2' is now started !
+01 May 2014 16:00:49,840 INFO  ~ Timestamp is:1398956449839
+01 May 2014 16:00:55,011 INFO  ~ Deleting blog: CarWash News blog id 3
+01 May 2014 16:00:55,020 INFO  ~ Checking user Walter White if he is subscribed.
+01 May 2014 16:00:55,024 INFO  ~ Checking user Jesse Pinkman if he is subscribed.
+01 May 2014 16:00:55,027 INFO  ~ Checking user Hank Schrader if he is subscribed.
+01 May 2014 16:00:55,029 INFO  ~ Checking user Gustavo Fring if he is subscribed.
+01 May 2014 16:00:55,032 INFO  ~ Checking user Mike Ehrmantraut if he is subscribed.
+01 May 2014 16:00:55,035 INFO  ~ Checking user Saul Goodman McGill if he is subscribed.
+01 May 2014 16:00:55,038 INFO  ~ Checking user Gale Boetticher if he is subscribed.
+01 May 2014 16:00:55,041 INFO  ~ Checking user Tuco Salamanca if he is subscribed.
+01 May 2014 16:00:55,768 INFO  ~ Deleting user Skyler White
+01 May 2014 16:00:55,794 INFO  ~ Deleting comments of user Skyler White

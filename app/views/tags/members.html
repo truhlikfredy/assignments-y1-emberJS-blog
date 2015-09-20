@@ -1,0 +1,35 @@
+      <section class="ui segment">
+       <label class="ui ribbon label"><i class="icon inverted circular black ${_ribbonIcon}"></i>
+        ${_ribbonTitle} (#{if _fav}{{countfriends}}#{/if}#{else}{{countmembers}}#{/else})
+       </label>
+       <section class="ui segment">
+        <div class="ui list"> 
+         {{#each}}
+          {{#ifswitch isFriend ${_fav}}}
+          <div class="ui item">
+            <img class="ui avatar {{unbound disabled-if-offline online showOnline}} image" src="/api/avatar/{{unbound id}}">
+           {{#link-to 'member' this class="ui animated fade tiny button"}}
+            <div class="visible content">{{name}}</div>            
+            <div class="hidden content"><i class="move icon"></i>see profile</div>
+           {{/link-to}}
+           
+           {{status}}
+           
+           #{if _fav}
+            <div class="ui right floated icon button" {{action 'removemem' this}}>
+              <i class="remove icon"></i>
+              unfriend
+            </div>           
+           #{/if}
+           #{else}
+            <div class="ui right floated icon button" {{action 'addmem' this}}>
+              <i class="add icon"></i>
+              Add as friend
+            </div>           
+           #{/else}
+          </div>
+          {{/ifswitch}}
+         {{/each}}
+        </div>
+       </section>
+      </section>

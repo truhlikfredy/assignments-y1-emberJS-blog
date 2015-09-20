@@ -1,0 +1,11 @@
+Post(first):
+    title: First title
+    body: My content
+    
+Post(second):
+    title: Second title
+    body: Again plenty content
+    
+Post(third):
+    title: Thirds title
+    body: Even more awesome content

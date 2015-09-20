@@ -1,0 +1,28 @@
+<section class="ui segment">
+  <label class="ui ribbon label"><i class="icon inverted circular black sign in"></i>Login credentials</label>
+  <section class="ui segment">
+    {{#if loginFailed}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Login failed.</div>
+      </div>
+    {{/if}}
+    
+    {{#if isSlowConnection}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Slow connection, please wait.</div>
+      </div>
+    {{/if}}    
+  
+    <form {{action "login" on="submit"}}>
+      <div class="field">
+        <label> Username: </label>
+        {{input value=email type="text"}}
+      </div>  
+      <div class="field">
+        <label>  Password: </label>
+        {{input value=password type="password"}}
+      </div>
+      <button class="ui submit button labeled icon {{bindAttr disabled="isProcessing"}}" ><i class="key icon"></i>Login</button>
+    </form>
+  </section>
+</section>

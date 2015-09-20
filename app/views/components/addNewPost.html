@@ -1,0 +1,32 @@
+<section class="ui form segment">
+  <label class="ui black ribbon label"><i class="icon inverted circular file"></i><b>Add new post</b></label>    
+  <section class="ui segment">
+
+    {{#if formFailed}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Please fill all data properly.</div>
+      </div>
+    {{/if}}
+    
+    {{#if formSlowConnection}}
+      <div class="ui error message">
+        <div class="header" id="error_sound">Slow connection, please wait.</div>
+      </div>
+    {{/if}}    
+
+      <div class="field">
+         <label>Title</label>
+         {{input type="text" id="form_title" name="blog_title" value=posttitle}}
+      </div>
+      <div class="field">
+         <label>Content</label>
+         {{textarea type="text" id="form_contentText" name="form_contentText" value=postcontenttext}}
+      </div>
+      <div class="field">    
+         <label>Allow comments</label>
+         {{input type="checkbox" id="form_allowComments" checked=postallowcomments }}
+      </div>
+      <div class="ui icon button" {{action 'addpost' this}}><i class="labeled icon"></i>Add post</div>
+     
+  </section>
+</section>
