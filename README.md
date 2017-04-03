@@ -2,7 +2,7 @@
 First year assignment, tried single page application approach with emberJS and semanticUI. Server side written in Java using play framework.
 
 ![Title screen image]
-(/screenShotsBlog/00.jpg)
+(/screenShots/00.jpg)
 
 # Features
 * Each user can make blog entries, comment on others blogs.
@@ -15,12 +15,12 @@ First year assignment, tried single page application approach with emberJS and s
  * Hosted on Cloudbees and Debian (6,7 and 8) hosting.
 
 ![After login image]
-(/screenShotsBlog/01.png)
+(/screenShots/01.png)
 
 # emberJS updates content and data-fields life
 
 ![emberJS]
-(/screenShotsBlog/02.png)
+(/screenShots/02.png)
 
 
 # Eclipse import
@@ -38,15 +38,15 @@ Website will be aviable on **http://localhost:9000/**
 # Sketses
 
 ![skets]
-(/screenShotsBlog/05.png)
+(/screenShots/05.png)
 
 
 ![skets]
-(/screenShotsBlog/04.png)
+(/screenShots/04.png)
 
 
 ![skets]
-(/screenShotsBlog/03.png)
+(/screenShots/03.png)
 
 
 # Default passwords
