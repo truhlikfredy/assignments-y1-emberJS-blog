@@ -2,7 +2,7 @@
 First year assignment, tried single page application approach with emberJS and semanticUI. Server side written in Java using play framework.
 
 ![Title screen image]
-(https://raw.githubusercontent.com/truhlikfredy/commitsFromPrivateRepos/master/screenShotsBlog/00.jpg)
+(/screenShotsBlog/00.jpg)
 
 # Features
 * Each user can make blog entries, comment on others blogs.
@@ -15,12 +15,12 @@ First year assignment, tried single page application approach with emberJS and s
  * Hosted on Cloudbees and Debian (6,7 and 8) hosting.
 
 ![After login image]
-(https://raw.githubusercontent.com/truhlikfredy/commitsFromPrivateRepos/master/screenShotsBlog/01.png)
+(/screenShotsBlog/01.png)
 
 # emberJS updates content and data-fields life
 
 ![emberJS]
-(https://raw.githubusercontent.com/truhlikfredy/commitsFromPrivateRepos/master/screenShotsBlog/02.png)
+(/screenShotsBlog/02.png)
 
 
 # Eclipse import
@@ -38,15 +38,15 @@ Website will be aviable on **http://localhost:9000/**
 # Sketses
 
 ![skets]
-(https://raw.githubusercontent.com/truhlikfredy/commitsFromPrivateRepos/master/screenShotsBlog/05.png)
+(/screenShotsBlog/05.png)
 
 
 ![skets]
-(https://raw.githubusercontent.com/truhlikfredy/commitsFromPrivateRepos/master/screenShotsBlog/04.png)
+(/screenShotsBlog/04.png)
 
 
 ![skets]
-(https://raw.githubusercontent.com/truhlikfredy/commitsFromPrivateRepos/master/screenShotsBlog/03.png)
+(/screenShotsBlog/03.png)
 
 
 # Default passwords
